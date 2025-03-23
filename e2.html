@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/pico.min.css">
+    <script src="js/common.js" defer></script>
+    <title>Erkundung 2</title>
+</head>
+
+<body>
+
+    <main class="container">
+        <h1>Erkundung 2: Sich von einem KI-Sprachmodell herausfordern lassen</h1>
+
+        <p>Normalerweise würden Sie sich Inhalte von einem KI-Sprachmodell generieren lassen. Wenn Sie allerdings selbst ins Denken kommen und an Ihren Inhalten weiterarbeiten wollen, ist ein umgedrehter Ansatz der bessere Weg. Hier sind mögliche Prompts dazu:</p>
+        <hr>
+        <div id="resultContainer">
+            <p id="prompt1">Ich möchte Thema xy besser verstehen. Lass uns einen sokratischen Dialog dazu führen! Du nimmst die Rolle von Sokrates ein, der mir Fragen stellt. Ich beantworte diese. Dann fragst du weiter.</p>
+            <button class="copyButton" data-target="prompt1">Prompt kopieren</button>
+<hr>
+            <p id="prompt2">Ich teile einen Text mit dir. Du gibst ihn mir anschließend Abschnitt für Abschnitt zurück und gibst mir dazu jeweils eine Anregung, was ich verbessern kann. Ich sage dir, ob ich das sinnvoll finde oder nicht. Am Ende gibst du mir eine Liste mit allen Aspekten, zu denen ich zugesagt habe, sie zu verbessern, als Checkliste.</p>
+            <button class="copyButton" data-target="prompt2">Prompt kopieren</button>
+<hr>
+<hr>
+            <p id="prompt3">Wir spielen ein Spiel. Ich schreibe eine Aussage zu KI in meinem beruflichen Kontext - und direkt daran anschließend die Warum-Frage dazu. Du beantwortest die Warum-Frage und hinterfragst wiederum deine Antwort mit einem Warum. Wenn ich Stopp sage, fragst du mich, was ich aus dem Frage-Antwort-Spiel besonders spannend fand - und schreibst mir in Reaktion auf meine Antwort, was du besonders kreativ und neu empfindest.</p>
+            <button class="copyButton" data-target="prompt3">Prompt kopieren</button>
+        </div>
+<hr>
+        <p>Vielleicht fallen Ihnen noch weitere Möglichkeiten ein, wie Sie sich herausfordern lassen können.</p>
+        <p>Frei und ohne Registrierung zugängliche KI-Sprachmodelle finden Sie z.B. über <a href="https://duckduckgo.com/?q=DuckDuckGo+AI+Chat&ia=chat&duckai=1&atb=v414-1">diesen Link bei der Suchmaschine DuckDuckGo</a>.</p>
+        <p><a href="index.html"><button>⬅ Zurück zur Übersicht</button></a></p>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll(".copyButton").forEach(button => {
+                button.addEventListener("click", function () {
+                    const targetId = this.getAttribute("data-target");
+                    const textToCopy = document.getElementById(targetId).innerText;
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        alert("Text wurde kopiert!");
+                    }).catch(err => {
+                        console.error("Kopieren fehlgeschlagen: ", err);
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
